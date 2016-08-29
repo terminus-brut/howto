@@ -1,8 +1,12 @@
 Java Packaging HOWTO
 ====================
 
-v4.6.0, 2015-06-15
+{localdate}
 
+== Versions of this document
+include::versions.txt[]
+
+== Authors and contributing
 include::preamble.txt[]
 
 :numbered!:
