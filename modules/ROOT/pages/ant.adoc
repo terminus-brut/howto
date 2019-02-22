@@ -1,3 +1,5 @@
+== Ant
+
 [quote,,http://ant.apache.org/]
 ______
 Apache Ant is a Java library and command-line tool whose mission is to drive
@@ -36,7 +38,7 @@ ant test
 %dir %{_javadir}/%{name}
 
 %files javadoc -f .mfiles-javadoc
-------
+-------------
 
 Details:
 
@@ -47,8 +49,8 @@ Details:
     - `%mvn_artifact` macro is used to request installation of an
       artifact that was not built using Maven. It expects a POM file and
       a JAR file. For POM only artifacts, the JAR part is omitted. +
-      See <<mvn_artifact,Installing additional artifacts>> for more
-      information
+      See xref:mvn_macros.adoc#mvn_artifact[Installing additional artifacts]
+      for more information
     - `%mvn_install` performs the actual installation. Optional `-J`
       parameter requests installation of generated Javadoc from given
       directory
@@ -90,7 +92,7 @@ ant -Divy.mode=local test
 
 %files -f .mfiles
 %files -javadoc -f .mfiles-javadoc
---------
+--------------
 
 Details:
 

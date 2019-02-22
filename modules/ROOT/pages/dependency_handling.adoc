@@ -1,3 +1,5 @@
+=== Dependency Handling
+
 WORK IN PROGRESS
 msimacek, 2015-04-09
 
@@ -80,11 +82,12 @@ using `rpm`:
 --------------
 rpm -qp --provides path/to/example-1.0.noarch.rpm
 rpm -qp --requires path/to/example-1.0.noarch.rpm
--------------
+--------------
 
 [TIP]
 =====
-See also <<querying_repositories, Querying Fedora repositories>>
+See also
+xref:introduction_for_developers.adoc#querying_repositories[Querying Fedora repositories]
 =====
 
 .Generating BuildRequires

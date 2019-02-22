@@ -1,10 +1,13 @@
-Handling of basic build steps in Java
+== Generic Java Build
+
+#FIXME('*' not recognized as bullets)
+Handling of basic build steps in Java:
 * javac
 * usage of build-claspath, build-jar-repository to prepare for build
 * ...
 
 === Generating Application Shell Scripts
-As mentioned in section about xref:XFor_Packagers[Java packaging basics], all
+As mentioned in section about xref:introduction_for_packagers.adoc[Java packaging basics], all
 Java applications need wrapper shell scripts to setup the environment before
 running JVM and associated Java code.
 

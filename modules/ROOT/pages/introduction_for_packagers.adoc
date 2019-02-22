@@ -1,3 +1,5 @@
+=== Introduction for Packagers
+
 Java is a programming language which is usually compiled into bytecode for JVM
 (Java Virtual Machine). For more details about the JVM and bytecode
 specification see
@@ -47,10 +49,8 @@ In this project all packages are under `src/` directory hierarchy.
 .HelloWorld.java listing
 [source,java]
 ------
-include::java_project/src/org/fedoraproject/helloworld/HelloWorld.java[]
+include::example$java_project/src/org/fedoraproject/helloworld/HelloWorld.java[]
 ------
-
-
 
 .Java packages
 [source,shell]
@@ -97,7 +97,7 @@ http://ant.apache.org/[Apache Ant] and http://www.gradle.org/[Gradle].
 
 [TIP]
 ======
-See also <<maven,Maven>> and <<ant,Ant>> sections.
+See also xref:maven.adoc[Maven] and xref:ant.adoc[Ant] sections.
 ======
 
 .JAR files
@@ -193,7 +193,7 @@ default named `pom.xml`. In its simpler form it usually looks like this:
         </dependency>
     </dependencies>
 </project>
----------
+-------------
 
 
 It describes project's build process in a declarative way, without
@@ -239,7 +239,7 @@ Apache Ant is also configured by an XML file. It is by convention named
     <delete dir="${dist}"/>
   </target>
 </project>
-----------
+-------------
 
 
 Ant build file consists mostly of targets, which are collections of

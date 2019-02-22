@@ -1,3 +1,5 @@
+=== Introduction for Java Developers
+
 Packaging Java software has specifics which we will try to cover in this section
 aimed at Java developers who are already familiar with Java language, JVM,
 classpath handling, Maven, pom.xml file structure and dependencies.
@@ -45,7 +47,7 @@ We packed the project directory into file `helloworld.tar.gz`.
 .Example spec file
 [source,spec,numbered]
 ------
-include::rpm_project/helloworld.spec[]
+include::example$rpm_project/helloworld.spec[]
 ------
 
 RPM `spec` files contain several basic sections:
@@ -66,7 +68,7 @@ Header, which contains: ::
    ** Run time dependencies will be detected automatically. If it fails,
       you have to specify them with `Requires`.
    ** More information on this topic can be found in
-      <<dependency_handling,Dependency handling>> section.
+      xref:dependency_handling.adoc[Dependency handling] section.
 
 
 Description::
@@ -188,7 +190,8 @@ osgi(org.apache.commons.io) = 2.4.0
 Output above means that package `apache-commons-io` provides two Maven
 artifacts: previously mentioned `commons-io:commons-io` and
 `org.apache.commons:commons-io`. In this case the second one is just an
-alias for same JAR file. See section about <<aliases,artifact aliases>>
+alias for same JAR file. See section about
+xref:jar_file_id_aliases.adoc[artifact aliases]
 for more information on this topic.
 
 Another useful tool is `rpm`. It can do a lot of stuff, but most
