@@ -3,71 +3,56 @@ Java Packaging HOWTO
 
 {localdate}
 
-== Versions of this document
-include::versions.txt[]
+include::versions.adoc[]
 
-== Authors and contributing
-include::preamble.txt[]
+include::preamble.adoc[]
 
 :numbered!:
 [abstract]
 == Abstract
 This document aims to help developers create and maintain Java packages in
 Fedora. It *does not* supersede or replace
-link:https://docs.fedoraproject.org/en-US/packaging-guidelines/Java/[Java Packaging Guidelines],
+link:https://fedoraproject.org/wiki/Packaging:Java[Java Packaging Guidelines],
 but rather aims to document tools and techniques used for packaging Java
 software on Fedora.
 
 
 :numbered:
-== Introduction
-include::introduction.txt[]
+include::introduction.adoc[]
 
-== Java Specifics in Fedora for Users and Developers
-include::fedora_java_specifics.txt[]
+include::fedora_java_specifics.adoc[]
 
-== Java Specifics in Fedora for Packagers
-include::fedora_java_packaging_specifics.txt[]
+include::fedora_java_packaging_specifics.adoc[]
 
-== Packaging Best Practices
-include::packaging_best_practices.txt[]
+include::packaging_best_practices.adoc[]
 
-== Generic Java Builds
-include::generic_java_build.txt[]
+include::generic_java_build.adoc[]
 
 [[ant]]
-== Ant
-include::ant.txt[]
+include::ant.adoc[]
 
 [[maven]]
-== Maven
-include::maven.txt[]
+include::maven.adoc[]
 
 [[gradle]]
-== Gradle
-include::gradle.txt[]
+include::gradle.adoc[]
 
-== Common Errors
-include::common_errors.txt[]
+include::common_errors.adoc[]
 
-== Integration of Maven and XMvn Tools
-include::integration_maven_xmvn.txt[]
+include::integration_maven_xmvn.adoc[]
 
-== Migration from older tools
-include::migration.txt[]
-
+include::migration.adoc[]
 
 [appendix]
-[[manpages]]
-== Manpages
-include::manpages.txt[]
+== Appendix
+Ideally include manpages for mvn_ and pom_ macros here
 
 [bibliography]
 References
 ----------
 
 [bibliography]
-- [[[guidelines]]] https://docs.fedoraproject.org/en-US/packaging-guidelines/Java/
+- [[[guidelines]]] https://fedoraproject.org/wiki/Packaging:Java
 - [[[walsh-muellner]]] Norman Walsh & Leonard Muellner.
   'DocBook - The Definitive Guide'. O'Reilly & Associates. 1999.
   ISBN 1-56592-580-7.
