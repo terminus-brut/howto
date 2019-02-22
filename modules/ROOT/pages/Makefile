@@ -24,11 +24,11 @@ pom_xpath_remove \
 pom_xpath_replace \
 pom_xpath_set
 
-manpages_html = $(patsubst %,manpages/%.7.html,$(manpages))
+manpages_html = $(patsubst %,../examples/manpages/%.7.html,$(manpages))
 
 all: index.html
 
-index.html: *.txt images/xmvn.svg $(manpages_html)
+index.html: *.txt *.adoc ../examples/images/xmvn.svg $(manpages_html)
 	asciidoc -b html5 -a icons -a toc2 -a toclevels=3 -a theme=flask \
 	    -a version=$(VERSION) $(ASCIIDOC_ARGS) index.txt
 
