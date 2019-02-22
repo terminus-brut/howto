@@ -1,3 +1,5 @@
+== Java Specifics in Fedora for Users and Developers
+
 This section contains information about default Java implementation in
 Fedora, switching between different Java runtime environments and about
 few useful tools which can be used during packaging/development.
@@ -50,7 +52,7 @@ There are 3 programs which provide 'java'.
    3           /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java
 
 Enter to keep the current selection[+], or type selection number:
--------
+--------
 
 Example above shows how to chose default Java environment. `java`
 command will then point to the Java implementation provided by given

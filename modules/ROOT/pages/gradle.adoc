@@ -1,3 +1,5 @@
+=== Gradle
+
 [quote,,from Gradle package description]
 ______
 Gradle combines the power and flexibility of Ant with the dependency
@@ -14,7 +16,7 @@ which can be used in situations requiring writing custom build logic.
 Flexibility means that Gradle build scripts can differ significantly
 across different projects and there is no universal way of packaging
 Gradle projects.  However, in most common situations the following
-steps are necessary:
+steps can are necessary:
 
 1. Add build-dependency on `gradle-local`
 2. In the `%build` section of the spec use `%gradle_build` macro to
@@ -39,7 +41,7 @@ BuildRequires:  gradle-local
 %files -f .mfiles
 
 %files javadoc -f .mfiles-javadoc
--------
+--------
 
 
 `%gradle_build` macro is very similar to `%mvn_build` and it
@@ -72,7 +74,7 @@ index a3cb553..50dd2a4 100644
      maven { url 'https://repo.gradle.org/gradle/libs' }
      mavenCentral()
  }
--------
+--------
 
 
 Once Gradle build completes, all Maven artifacts produced by the build
