@@ -1,28 +1,28 @@
 VERSION?=Unknown
 
 manpages=\
-mvn_alias \
-mvn_artifact \
-mvn_build \
-mvn_compat_version \
-mvn_config \
-mvn_file \
-mvn_install \
-mvn_package \
-pom_add_dep \
-pom_add_parent \
-pom_add_plugin \
-pom_change_dep \
-pom_disable_module \
-pom_remove_dep \
-pom_remove_parent \
-pom_remove_plugin \
-pom_set_parent \
-pom_xpath_disable \
-pom_xpath_inject \
-pom_xpath_remove \
-pom_xpath_replace \
-pom_xpath_set
+mvn_alias\
+mvn_artifact\
+mvn_build\
+mvn_compat_version\
+mvn_config\
+mvn_file\
+mvn_install\
+mvn_package\
+pom_add_dep\
+pom_add_parent\
+pom_add_plugin\
+pom_change_dep\
+pom_disable_module\
+pom_remove_dep\
+pom_remove_parent\
+pom_remove_plugin\
+pom_set_parent\
+pom_xpath_disable\
+pom_xpath_inject\
+pom_xpath_remove\
+pom_xpath_replace\
+pom_xpath_set\
 
 manpages_html = $(patsubst %,manpages/%.7.html,$(manpages))
 
