@@ -4,9 +4,6 @@ node() {
 	stage('Checkout') {
 		checkout scm
 	}
-	stage('Install tools') {
-		sh "yum -y install asciidoc dia javapackages-tools m4 make python3-ansi2html"
-	}
 	stage('Get commit message') {
 		sh "pushd howto"
 		env.commit_message = sh(
