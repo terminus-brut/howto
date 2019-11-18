@@ -5,7 +5,6 @@ node() {
 		checkout scm
 	}
 	stage('Get commit message') {
-		sh "pushd howto"
 		env.commit_message = sh(
 			script: "echo 'Upstream commit:' `git log -1 --pretty=%B`",
 			returnStdout: true
@@ -18,7 +17,6 @@ node() {
 	}
 	stage('Deploy') {
 		steps {
-			sh "set -e"
 			sh "git clone ssh://git@pagure.io/${downstream_name}.git"
 			sh "rm -rf ${downstream_name} /modules"
 			sh "mv modules ${downstream_name}"
