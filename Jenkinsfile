@@ -11,9 +11,8 @@ node() {
 		)
 	}
 	stage('Build') {
-		steps {
-			sh "make antora"
-		}
+		sh "echo ${commit_message}"
+		sh "make antora"
 	}
 	stage('Deploy') {
 		steps {
