@@ -1,6 +1,6 @@
 def downstream_name = 'java-packaging-howto'
 
-node('fedora-java-sig') {
+node() {
 	stages {
 		stage('Checkout') {
 			checkout scm
