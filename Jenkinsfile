@@ -5,7 +5,7 @@ node() {
 		checkout scm
 	}
 	stage('Install tools') {
-		sh "yum -y install asciidoc dia javapackages-tools m4 make python3-ansi2html"
+		sh "sudo yum -y install asciidoc dia javapackages-tools m4 make python3-ansi2html"
 	}
 	stage('Get commit message') {
 		env.commit_message = sh(
