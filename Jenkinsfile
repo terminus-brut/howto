@@ -1,28 +1,61 @@
 def downstream_name = 'java-packaging-howto'
 
-node() {
-	stage('Checkout') {
+def on_duffy_node(String script)
+{
+	sh 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l root ${DUFFY_NODE}.ci.centos.org "' + script + '"'
+}
+
+node()
+{
+	stage('Checkout')
+	{
 		checkout scm
 	}
-	stage('Install tools') {
-		sh "sudo yum -y install asciidoc dia javapackages-tools m4 make python3-ansi2html"
-	}
-	stage('Get commit message') {
+	stage('Get commit message')
+	{
 		env.commit_message = sh(
 			script: "echo 'Upstream commit:' `git log -1 --pretty=%B`",
 			returnStdout: true
 		)
 	}
-	stage('Build') {
-		sh "make antora"
+	stage('Allocate Duffy node')
+	{
+		env.CICO_API_KEY = readFile("${env.HOME}/duffy.key").trim()
+		
+		// Get a duffy node and set the DUFFY_NODE and SSID environment variables.
+		duffy_rtn = sh(
+			script: 'cico --debug node get -f value -c hostname -c comment --retry-count 16 --retry-interval 60',
+			returnStdout: true
+		).trim().tokenize(' ')
+		env.DUFFY_NODE = duffy_rtn[0]
+		env.SSID = duffy_rtn[1]
 	}
-	stage('Deploy') {
-		sh "git clone ssh://git@pagure.io/${downstream_name}.git"
-		sh "rm -rf ${downstream_name} /modules"
-		sh "mv modules ${downstream_name}"
-		sh "pushd ${downstream_name}"
-		sh "git add modules"
-		sh "git commit -m ${commit_message}"
-		sh "git push origin master:test"
+	try
+	{
+		stage('Install tools')
+		{
+			on_duffy_node "sudo yum -y install asciidoc dia javapackages-tools m4 make python3-ansi2html"
+		}
+		stage('Build')
+		{
+			on_duffy_node "make antora"
+		}
+		stage('Deploy')
+		{
+			on_duffy_node "git clone https://pagure.io/java-packaging-howto.git"
+			on_duffy_node "rm -rf ${downstream_name} /modules"
+			on_duffy_node "mv modules ${downstream_name}"
+			on_duffy_node "pushd ${downstream_name}"
+			on_duffy_node "git add modules"
+			on_duffy_node "git commit -m ${commit_message}"
+			on_duffy_node "git push origin master:test"
+		}
+	}
+	finally
+	{
+		stage('Deallocate node')
+		{
+			sh 'cico node done ${SSID}'
+		}
 	}
 }
