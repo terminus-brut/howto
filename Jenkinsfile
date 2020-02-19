@@ -5,7 +5,7 @@ def on_duffy_node(String script)
 	sh 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l root ${DUFFY_NODE}.ci.centos.org "' + script + '"'
 }
 
-node()
+node('cico-workspace')
 {
 	stage('Checkout')
 	{
@@ -20,8 +20,6 @@ node()
 	}
 	stage('Allocate Duffy node')
 	{
-		env.CICO_API_KEY = readFile("${env.HOME}/duffy.key").trim()
-		
 		// Get a duffy node and set the DUFFY_NODE and SSID environment variables.
 		duffy_rtn = sh(
 			script: 'cico --debug node get -f value -c hostname -c comment --retry-count 16 --retry-interval 60',
