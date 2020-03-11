@@ -36,17 +36,21 @@ node('cico-workspace')
 		}
 		stage('Build')
 		{
+			on_duffy_node "git clone git@github.com:fedora-java/howto.git"
+			on_duffy_node "pushd howto"
 			on_duffy_node "make antora"
+			on_duffy_node "popd"
 		}
 		stage('Deploy')
 		{
-			on_duffy_node "git clone https://pagure.io/java-packaging-howto.git"
-			on_duffy_node "rm -rf ${downstream_name} /modules"
-			on_duffy_node "mv modules ${downstream_name}"
+			on_duffy_node "git clone https://pagure.io/${downstream_name}.git"
+			on_duffy_node "rm -rf ${downstream_name}/modules"
+			on_duffy_node "mv howto/modules ${downstream_name}"
 			on_duffy_node "pushd ${downstream_name}"
 			on_duffy_node "git add modules"
 			on_duffy_node "git commit -m ${commit_message}"
 			on_duffy_node "git push origin master:test"
+			on_duffy_node "popd"
 		}
 	}
 	finally
