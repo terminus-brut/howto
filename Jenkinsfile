@@ -32,7 +32,8 @@ node('cico-workspace')
 	{
 		stage('Install tools')
 		{
-			on_duffy_node "sudo yum -y install asciidoc dia javapackages-tools m4 make python3-ansi2html"
+			on_duffy_node "sudo yum -y install epel-release"
+			on_duffy_node "sudo yum -y install asciidoc dia git javapackages-tools m4 make python3-ansi2html"
 		}
 		stage('Build')
 		{
