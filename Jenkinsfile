@@ -5,7 +5,7 @@ def on_duffy_node(String script)
 	sh 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l root ${DUFFY_NODE}.ci.centos.org "' + script + '"'
 }
 
-node()
+node('cico-workspace')
 {
 	stage('Checkout')
 	{
