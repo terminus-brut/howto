@@ -30,9 +30,11 @@ node('cico-workspace')
 	}
 	try
 	{
+		sh(echo "${7bfa26df-a678-4b79-80d1-01432bf5bb20}")
+		"""
 		stage('Install tools')
 		{
-			on_duffy_node "sudo yum -y install epel-release"
+			on_duffy_node "sudo yum -y install podman"
 			on_duffy_node "sudo yum -y install asciidoc dia git javapackages-tools m4 make python3-ansi2html"
 		}
 		stage('Build')
@@ -53,6 +55,7 @@ node('cico-workspace')
 			on_duffy_node "git push origin master:test"
 			on_duffy_node "popd"
 		}
+		"""
 	}
 	finally
 	{
