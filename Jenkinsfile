@@ -30,7 +30,7 @@ node('cico-workspace')
 	}
 	try
 	{
-		sh(echo "${7bfa26df-a678-4b79-80d1-01432bf5bb20}")
+		sh("echo ${7bfa26df-a678-4b79-80d1-01432bf5bb20}")
 		"""
 		stage('Install tools')
 		{
